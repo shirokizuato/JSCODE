@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Coffee Shop</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Coffee</th>
+            <th>Size</th>
+            <th>Price(HOT)</th>
+            <th>Price (COLD)</th>
+        </tr>
+    </thead>
+<tbody id="Coffee">
+
+</tbody>
+</table>
+
+<script>
+
+const obj = JSON.parse(text);
+fetch('sample.json')
+.then(response => response.json())
+.then(data => {
+    
+    const table = document.getElementById('Coffee');
+
+    data.forEach(Coffee => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+        <td>${Coffee.Coffee}</td>
+        <td>${Coffee.Size}</td>
+        <td>PHP ${Coffee.Hot}</td>
+        <td>PHP ${Coffee.Cold}</td>
+        `;
+        table.appendChild(row);
+
+
+    });
+})
+
+.catch(error => console.error('Error loading JSON:', error));
+
+
+</script>
+</body>
+</html>
