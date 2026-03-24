@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Joei's Coffee Daily</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdf6e3;
+      color: #333;
+      text-align: center;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 70%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+    }
+    th {
+      background: #d2691e;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+<h2>☕ Joei's Coffee Daily</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Coffee</th>
+      <th>Size</th>
+      <th>Price (HOT)</th>
+      <th>Price (COLD)</th>
+    </tr>
+  </thead>
+  <tbody id="Coffee"></tbody>
+</table>
+
+<script>
+fetch('sample.json')
+  .then(response => response.json())
+  .then(data => {
+    const table = document.getElementById('Coffee');
+
+    data.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${item.Coffee}</td>
+        <td>${item.Size}</td>
+        <td>PHP ${item.Hot}</td>
+        <td>PHP ${item.Cold}</td>
+      `;
+      table.appendChild(row);
+    });
+  })
+  .catch(error => console.error('Error loading JSON:', error));
+</script>
+
+</body>
+</html>
