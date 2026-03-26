@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTTP Method Buttons</title>
+</head>
+<body>
+  <h1>HTTP Method Buttons</h1>
+
+  <button onclick="sendRequest('GET')">GET</button>
+  <button onclick="sendRequest('POST')">POST</button>
+  <button onclick="sendRequest('PATCH')">PATCH</button>
+  <button onclick="sendRequest('PUT')">PUT</button>
+  <button onclick="sendRequest('DELETE')">DELETE</button>
+
+  <!-- <pre id="output"></pre>
+
+  <script>
+    async function sendRequest(method) {
+      const url = "https://jsonplaceholder.typicode.com/posts/1"; // Example API
+      let options = { method };
+
+      if (method === "POST" || method === "PUT" || method === "PATCH") {
+        options.headers = { "Content-Type": "application/json" };
+        options.body = JSON.stringify({
+          title: "foo",
+          body: "bar",
+          userId: 1
+        });
+      }
+
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        document.getElementById("output").textContent =
+          method + " response:\n" + JSON.stringify(data, null, 2);
+      } catch (error) {
+        document.getElementById("output").textContent =
+          "Error with " + method + " request:\n" + error;
+      }
+    }
+  </script>
+</body>
+</html> -->
