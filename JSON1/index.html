@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- REST API Tester: A web app for testing HTTP requests to JSONPlaceholder API -->
+<!-- Allows users to perform GET, POST, PUT, PATCH, DELETE operations on user data -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REST API Tester</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="card">
+  <div class="card-header">
+    <span>🍥 API Tester</span>
+    <span class="url-text" id="urlDisplay">jsonplaceholder.typicode.com/users</span>
+  </div>
+
+  <div class="methods">
+    <button class="method-btn active" data-method="GET">GET</button>
+    <button class="method-btn" data-method="POST">POST</button>
+    <button class="method-btn" data-method="PUT">PUT</button>
+    <button class="method-btn" data-method="PATCH">PATCH</button>
+    <button class="method-btn" data-method="DELETE">DELETE</button>
+  </div>
+
+  <div class="fields">
+    <div class="field" id="idRow" style="display:none">
+      <label>ID</label>
+      <input id="fId" type="number" value="1" min="1" max="10">
+    </div>
+    <div class="field" id="nameRow" style="display:none">
+      <label>Name</label>
+      <input id="fName" value="Naruto Uzumaki">
+    </div>
+    <div class="field" id="usernameRow" style="display:none">
+      <label>Username</label>
+      <input id="fUsername" value="Hokage">
+    </div>
+    <div class="field" id="emailRow" style="display:none">
+      <label>Email</label>
+      <input id="fEmail" value="leaf@hidden.com">
+    </div>
+    <div class="field" id="addressRow" style="display:none">
+      <label>Address</label>
+      <input id="fAddress" value="Konoha">
+    </div>
+    <p id="getNote" style="font-size:0.75rem;color:#b35900;padding-left:87px;font-style:italic;">Fetching Users...</p>
+  </div>
+
+  <div class="send-row">
+    <button id="sendBtn" onclick="sendRequest()">SEND</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="response">
+    <div class="response-row" style="display:flex; align-items:center; gap:10px;">
+      <span class="status-badge" id="statusBadge">—</span>
+      <span class="status-text" id="statusText">Waiting for output...</span>
+    </div>
+    <div class="response-body" id="responseBody" style="display:none"></div>
+  </div>
+
+  <div class="table-wrap" id="tableWrap" style="display:none">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="API.js"></script>
+</body>
+</html>

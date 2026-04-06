@@ -1,0 +1,182 @@
+/* Styles for the REST API Tester web app */
+/* Features Naruto-themed colors and responsive design */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdf2e9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 103, 0, 0.15);
+  width: 100%;
+  max-width: 720px;
+  overflow: hidden;
+  border: 2px solid #ff6700;
+}
+
+.card-header {
+  background: #ff6700;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.url-text {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.methods {
+  display: flex;
+  padding: 20px 20px 0;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.method-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: 2px solid;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+/* Naruto-themed method colors */
+.method-btn[data-method="GET"]    { border-color: #ff6700; color: #ff6700; }
+.method-btn[data-method="POST"]   { border-color: #004d99; color: #004d99; }
+.method-btn[data-method="PUT"]    { border-color: #e60000; color: #e60000; }
+.method-btn[data-method="PATCH"]  { border-color: #5b2c6f; color: #5b2c6f; }
+.method-btn[data-method="DELETE"] { border-color: #333333; color: #333333; }
+
+.method-btn.active { color: white !important; }
+.method-btn[data-method="GET"].active    { background: #ff6700; }
+.method-btn[data-method="POST"].active   { background: #004d99; }
+.method-btn[data-method="PUT"].active    { background: #e60000; }
+.method-btn[data-method="PATCH"].active  { background: #5b2c6f; }
+.method-btn[data-method="DELETE"].active { background: #333333; }
+
+.fields {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.field label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ff6700;
+  width: 75px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.field input {
+  flex: 1;
+  border: 2px solid #ffe5d4;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input:focus { border-color: #ff6700; }
+
+.send-row {
+  padding: 0 20px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#sendBtn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: #ff6700;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0 4px 0 #cc5200;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#sendBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #cc5200;
+}
+
+.divider { height: 4px; background: #ffe5d4; }
+
+.response { padding: 20px; background: #fffaf7; }
+
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #eee;
+  color: #888;
+}
+
+.status-badge.ok     { background: #ff6700; color: white; }
+.status-badge.create { background: #004d99; color: white; }
+.status-badge.err    { background: #e60000; color: white; }
+
+.status-text { font-size: 0.8rem; font-weight: 600; color: #555; }
+
+.response-body {
+  background: white;
+  border: 2px solid #ffe5d4;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+.response-body .key { color: #ff6700; font-weight: 700; margin-right: 8px; }
+.response-body .val { color: #333; }
+
+.table-wrap { overflow-x: auto; padding: 0 20px 20px; }
+
+table { width: 100%; border-collapse: collapse; }
+th {
+  padding: 12px;
+  text-align: left;
+  font-size: 0.7rem;
+  color: #ff6700;
+  border-bottom: 2px solid #ff6700;
+}
+td { padding: 12px; border-bottom: 1px solid #ffe5d4; font-size: 0.8rem; }
+
+.id-cell { font-weight: 800; color: #ff6700; }
